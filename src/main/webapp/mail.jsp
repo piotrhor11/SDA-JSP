@@ -1,16 +1,18 @@
 <%@ page import = "java.io.*,java.util.*,javax.mail.*"%>
 <%@ page import = "javax.mail.internet.*,javax.activation.*"%>
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
-<%@ page import="org.sda.jsp.SMTPAuthenticator" %>
+<%@ page import = "org.sda.jsp.SMTPAuthenticator" %>
 
 <%
     String result;
 
     // Recipient's email ID needs to be mentioned.
-    String to = "java3wro@gmail.com";
+//    String to = "java4wro@gmail.com";
+    String to = "piotrhor11@gmail.com";
 
     // Sender's email ID needs to be mentioned
-    String from = "mcmohd@gmail.com";
+//    String from = "mcmohd@gmail.com";
+    String from = request.getParameter("emailAddress");         //Wstrzykujemy nowego adresata
 
     String host = "smtp.gmail.com";
 
@@ -44,7 +46,7 @@
         message.setSubject("This is the Subject Line!");
 
         // Now set the actual message
-        message.setText("This is actual message");
+        message.setText(request.getParameter("emailText"));             //Wstrzykujemy tekst wiadomości
 
         // Send message
         Transport.send(message);

@@ -8,9 +8,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>Response</title>
 </head>
 <body>
-$END$
+<%
+    out.print("Name: ");
+    out.print(request.getParameter("name"));
+    out.print("<br>Surname: ");
+    out.print(request.getParameter("surname"));
+    out.print("<br>email: ");
+    out.print(request.getParameter("email"));
+
+%>
+
+
+
+
 </body>
 </html>
